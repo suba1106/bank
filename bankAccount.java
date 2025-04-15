@@ -12,11 +12,14 @@ private boolean isActive;
  this.isActive = true;
  }
  public void withdraw(double amount) {
- balance -= amount;
- transactionHistory.add("Withdrawal: -" + amount);
+  if(balance != 0){
+   balance -= amount;
+   transactionHistory.add("Withdrawal: -" + amount);
+  }
  }
  public void deposit(double amount) {
  balance += amount;
- transactionHistory.add("Deposit: +" + amount);
+ balance += amount*.01;
+ transactionHistory.add("Deposit: +" + amount + amount*.01);
  }
 }
